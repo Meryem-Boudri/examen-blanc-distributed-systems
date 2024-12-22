@@ -2,6 +2,7 @@ package ma.enset.conferenceservice.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import ma.enset.conferenceservice.feign.Keynote;
@@ -14,6 +15,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class Conference {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
