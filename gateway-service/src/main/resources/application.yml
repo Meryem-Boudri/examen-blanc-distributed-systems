@@ -4,10 +4,21 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-            allowedOrigins: "http://localhost:4200"
-            allowedHeaders: "*"
+            allowedOrigins: "http://localhost:4200"  # Frontend application allowed origin (React app)
+            allowedHeaders: "*"  # Allow all headers
             allowedMethods:
               - GET
               - POST
               - PUT
-              - DELETE
+              - DELETE  # Allowed HTTP methods
+      globalfilters:
+        - name: JwtGatewayFilter  # Register the JwtGatewayFilter globally
+management:
+  endpoints:
+    web:
+      exposure:
+        include: gateway, routes
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
