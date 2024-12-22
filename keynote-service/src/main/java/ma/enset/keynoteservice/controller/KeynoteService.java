@@ -14,9 +14,14 @@ import java.util.List;
 public class KeynoteService {
     private final KeynoteRepository keynoteRepository;
 
-    @GetMapping
+    @GetMapping("/")
     public List<Keynote> getAllKeynotes() {
         return keynoteRepository.findAll();
+    }
+
+    @GetMapping("/{id}")
+    public Keynote geKeynoteById(@PathVariable Long id) {
+        return keynoteRepository.findById(id).orElse(null);
     }
 
     @PostMapping

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import ma.enset.conferenceservice.feign.Keynote;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,7 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Conference {
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String type; // Academic or Commercial
@@ -25,5 +27,6 @@ public class Conference {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "conference")
     private List<Review> reviews = new ArrayList<>();
+    private Long keynoteId;
 }
 
