@@ -1,0 +1,10 @@
+{
+  "realm": "sdia-realm",
+  "auth-server-url": "http://localhost:8080/",
+  "ssl-required": "external",
+  "resource": "sdia-customer-client",
+  "credentials": {
+    "secret": "MT206zrvX8yYs6Xry1pUEotD4xwADCNf"
+  },
+  "confidential-port": 0
+}
