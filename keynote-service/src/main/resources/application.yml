@@ -25,3 +25,8 @@ springdoc:
   swagger-ui:
     path: /swagger-ui.html
 
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG
+

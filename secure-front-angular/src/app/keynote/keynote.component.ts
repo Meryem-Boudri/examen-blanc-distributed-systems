@@ -1,37 +1,26 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { KeycloakService } from 'keycloak-angular';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-keynote',
   templateUrl: './keynote.component.html',
-  styleUrls: ['./keynote.component.css']
+  styleUrls: ['./keynote.component.css']  // Fixed styleUrls (plural)
 })
 export class KeynoteComponent implements OnInit {
+  keynotes: any;  // Declare the type of keynotes if you know the structure, like: keynotes: Keynote[];
 
-  keynotes: any;
-
-  constructor(private http: HttpClient, private keycloakService: KeycloakService) {}
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    // Get the token from Keycloak service
-    const token = this.keycloakService.getToken();
-
-    // Set up the authorization header
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${token}`,
-      'Content-Type': 'application/json',
-
-    });
-
-    // Send the GET request with the authorization header
-    this.http.get('http://localhost:9999/keynote-service/keynotes/', { headers: headers })
+    console.log('KeynoteComponent initialized');
+    this.http.get("http://localhost:8083/keynotes/")
       .subscribe({
-        next: data => {
+        next: (data) => {
           this.keynotes = data;
+          console.log('data', data);
         },
-        error: err => {
-          console.log(err);
+        error: (err) => {
+          console.error('Error fetching keynotes:', err);
         }
       });
   }

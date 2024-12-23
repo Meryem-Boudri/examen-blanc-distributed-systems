@@ -4,16 +4,13 @@ spring:
       discovery:
         enabled: true
       config:
-        enabled: false # Désactivez cela si vous n'utilisez pas le service de configuration Consul
+        enabled: false
   management:
     endpoints:
       web:
         exposure:
-          include: health,info # Assurez-vous que les endpoints de santé sont exposés
-
-management:
+          include: health,info
   health:
-    # Configurez votre check de santé ici
     db:
       enabled: true
     ping:
@@ -23,3 +20,7 @@ springdoc:
     path: /v3/api-docs
   swagger-ui:
     path: /swagger-ui.html
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    org.springframework.web.filter.CommonsRequestLoggingFilter: DEBUG

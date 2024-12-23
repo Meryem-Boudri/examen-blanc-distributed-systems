@@ -8,6 +8,7 @@ import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.stereotype.Component;
 import org.springframework.web.server.ServerWebExchange;
 import reactor.core.publisher.Mono;
+/*
 @Component
 public class JwtGatewayFilter implements GatewayFilter {
     private static final Logger logger = LoggerFactory.getLogger(JwtGatewayFilter.class);
@@ -26,4 +27,6 @@ public class JwtGatewayFilter implements GatewayFilter {
 
         return chain.filter(exchange);
     }
-}
+
+
+}*/
