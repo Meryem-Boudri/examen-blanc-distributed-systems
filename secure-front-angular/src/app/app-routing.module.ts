@@ -8,7 +8,6 @@ const routes: Routes = [
   { path: 'keynote', component: KeynoteComponent, canActivate: [AuthGuard] },
   { path: 'conference', component: ConferenceComponent, canActivate: [AuthGuard] },
   { path: '', redirectTo: '/keynote', pathMatch: 'full' },
-  { path: '**', redirectTo: '/keynote' },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

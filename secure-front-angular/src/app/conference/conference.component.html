@@ -4,18 +4,25 @@
       <table class="table">
         <thead>
         <tr>
-          <th>ID</th> <th>Name</th> <th>Price</th> <th>Quantity</th>
+          <th>ID</th> <th>title</th> <th>type</th> <th>attendees</th><th>date</th><th>score</th>
         </tr>
         </thead>
         <tbody>
         <tr *ngFor="let k of conferences">
+
           <td>{{k.id}}</td>
-          <td>{{k.name}}</td>
-          <td>{{k.price}}</td>
-          <td>{{k.quantity}}</td>
+          <td>{{k.title}}</td>
+          <td>{{k.type}}</td>
+          <td>{{k.date}}</td>
+          <td>{{k.attendees}}</td>
+          <td>{{k.score}}</td>
+
+
         </tr>
         </tbody>
       </table>
+      <button routerLink="/keynote"> keynote</button>
+
     </div>
   </div>
 </div>

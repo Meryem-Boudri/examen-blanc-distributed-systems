@@ -6,9 +6,7 @@ import { KeynoteComponent } from './keynote/keynote.component';
 import { ConferenceComponent } from './conference/conference.component';
 import {KeycloakAngularModule, KeycloakService} from 'keycloak-angular';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import { NgZone } from '@angular/core';
 
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import {AuthInterceptor} from './interceptors/auth.interceptor';
 
 export function initializeKeycloak(keycloak: KeycloakService) : ()=>Promise<any>

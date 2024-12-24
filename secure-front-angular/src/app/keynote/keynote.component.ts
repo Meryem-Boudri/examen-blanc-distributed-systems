@@ -14,6 +14,7 @@ export class KeynoteComponent implements OnInit {
   ngOnInit(): void {
     console.log('KeynoteComponent initialized');
     this.http.get("http://localhost:8083/keynotes/")
+    //this.http.get("http://localhost:9999/keynote-service/keynotes/")
       .subscribe({
         next: (data) => {
           this.keynotes = data;
