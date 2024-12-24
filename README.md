@@ -1,4 +1,4 @@
-# README: Microservice Conference Management Application
+# Microservice Conference Management Application
 
 ## Project Overview
 This project is a microservice-based application designed to manage conferences hosted by keynote speakers. It includes the following features:
