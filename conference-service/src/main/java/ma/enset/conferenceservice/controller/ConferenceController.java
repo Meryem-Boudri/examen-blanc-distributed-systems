@@ -3,6 +3,8 @@ package ma.enset.conferenceservice.controller;
 import lombok.AllArgsConstructor;
 import ma.enset.conferenceservice.entities.Conference;
 import ma.enset.conferenceservice.entities.Review;
+import ma.enset.conferenceservice.feign.Keynote;
+import ma.enset.conferenceservice.feign.KeynoteClient;
 import ma.enset.conferenceservice.service.ConferenceService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +16,8 @@ import java.util.List;
 @RequestMapping("/conferences")
 public class ConferenceController {
 
-    private final ConferenceService conferenceService;
+    private ConferenceService conferenceService;
+    private KeynoteClient keynoteClient;
 
     // Créer une conférence
     @PostMapping("/create")
@@ -39,4 +42,10 @@ public class ConferenceController {
     public ResponseEntity<Review> addReviewToConference(@PathVariable Long conferenceId, @RequestBody Review review) {
         return ResponseEntity.ok(conferenceService.addReviewToConference(conferenceId, review));
     }
+
+    @GetMapping("/keynote/{id}")
+    public ResponseEntity<Keynote> getKeynoteById(@PathVariable Long id) {
+        return ResponseEntity.ok(keynoteClient.getKeynoteById(id));
+    }
+
 }

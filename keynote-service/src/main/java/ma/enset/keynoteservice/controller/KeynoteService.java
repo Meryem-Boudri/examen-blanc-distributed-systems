@@ -14,7 +14,7 @@ import java.util.List;
 public class KeynoteService {
     private final KeynoteRepository keynoteRepository;
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public List<Keynote> getAllKeynotes() {
         return keynoteRepository.findAll();
     }
@@ -24,7 +24,7 @@ public class KeynoteService {
         return keynoteRepository.findById(id).orElse(null);
     }
 
-    @PostMapping
+    @PostMapping("add")
     public Keynote createKeynote(@RequestBody Keynote keynote) {
         return keynoteRepository.save(keynote);
     }

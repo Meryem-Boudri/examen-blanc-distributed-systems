@@ -12,7 +12,7 @@ export class ConferenceComponent implements OnInit{
   conferences:any;
 
   ngOnInit(): void {
-    this.http.get("http://localhost:8081/conferences/all")
+    this.http.get("http://localhost:8082/api/bank-agencies")
       .subscribe({
         next : data => {
           console.log('in conference')

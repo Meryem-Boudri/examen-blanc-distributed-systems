@@ -92,8 +92,14 @@ The application is built on a microservice architecture with the following compo
 
 
 kc.bat start-dev
-consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind=192.168.0.192
+#consul agent -server -bootstrap-expect=1 -data-dir=consul-data -ui -bind=192.168.1.22
+mkdir "C:\consul-data" && icacls "C:\consul-data" /grant Everyone:(F) /T && consul agent -server -bootstrap-expect=1 -data-dir="C:\consul-data" -ui -bind=192.168.1.22
+consul agent -server -bootstrap-expect=1 -data-dir="C:\consul-data" -ui -bind=192.168.1.22
 admin 1234
+
+
+http://127.0.0.1:8500/ui/dc1/services
+
 http://localhost:8080/realms/sdia-realm
 http://localhost:8080/realms
 /sdia-realm/.well-known/openid-configuration

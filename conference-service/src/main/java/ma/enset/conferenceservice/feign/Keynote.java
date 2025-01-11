@@ -7,11 +7,10 @@ import java.util.List;
 public class Keynote {
 
     private Long id;
-    private String title;
-    private String speaker;
-    private String description;
-    private String date;
-
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String function;
     
 }
 

@@ -1,26 +1,22 @@
-spring:
-  cloud:
-    gateway:
-      globalcors:
-        corsConfigurations:
-          '[/**]':
-            allowedOrigins:
-            - "http://localhost:4200"  # Frontend application
-            - "http://127.0.0.1:4200" # Alternate local origin if needed
-            allowedHeaders: "*"        # Allow all headers
-
-            allowedMethods:
-              - GET
-              - POST
-              - PUT
-              - DELETE  # Allowed HTTP methods
-   #   globalfilters:
-    #    - name: JwtGatewayFilter  # Register the JwtGatewayFilter globally
 management:
   endpoints:
     web:
       exposure:
-        include: gateway, routes
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true # Ensure gateway-specific actuator endpoints are enabled
+
+spring:
+  cloud:
+    gateway:
+      filter:
+        remove-filtered-headers: false
+
+      default-filters:
+        - PreserveHostHeader
+
+
 
 logging:
   level:
